@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
 
-echo "$2" >> /server.q
-echo "$3" >> /userpass.txt
+main() {
+	declare PORT="$1" ON_STARTUP="$2" USER="$3"
 
-USERPASS=""
-if [ "$3" != "" ]; then
-	USERPASS="-u /userpass.txt"
-fi
+	# Set up the environment
+	echo "$ON_STARTUP" >> /server.q
+	echo "$USER" >> /userpass.txt
 
-/root/q/l32/q /server.q $USERPASS -p $1
+	# Check whether we want to set up authentication
+	if [ "$USER" != "" ]; then
+		USERPASS="-u /userpass.txt"
+	else
+		USERPASS=""
+	fi
+
+	# Start up the server on given port, load /server.q
+	/root/q/l32/q /server.q $USERPASS -p $PORT
+}
+
+main "$@"
