@@ -8,7 +8,8 @@ ENV ON_STARTUP="-1\"Fresh startup\";"
 
 RUN apt-get update && apt-get install -y \
     unzip=6.0* \
-    lib32z1=1:1.2.8*
+    lib32z1=1:1.2.8* \
+    && rm -rf /var/lib/apt/lists/*
 
 ADD https://kx.com/347_d0szre-fr8917_llrsT4Yle-5839sdX/3.6/linuxx86.zip \
     /root/kdbq.zip
