@@ -20,7 +20,7 @@ main() {
 	get_userpass "$USER" || USERPASS=""
 
 	# Start up the server on given port, load /server.q
-	/root/q/l32/q /server.q $USERPASS -p $PORT
+	/root/q/l32/q /server.q $USERPASS -p 0.0.0.0:$PORT
 }
 
 main "$@"
