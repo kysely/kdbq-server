@@ -8,7 +8,7 @@ LABEL "kdb+ license"="No Fee, Non-Commercial Use <https://kx.com/download/>"
 
 ENV PORT=5000
 ENV ON_STARTUP="-1\"Fresh startup\";"
-ENV USER=""
+ENV AUTH=""
 
 RUN apt-get update && apt-get install -y \
     unzip=6.0* \
@@ -22,4 +22,4 @@ RUN unzip /root/kdbq.zip -x q/q.q q/README.txt -d /root/ && rm /root/kdbq.zip
 COPY docker-entrypoint.sh /usr/local/bin/
 
 EXPOSE $PORT
-ENTRYPOINT docker-entrypoint.sh "$PORT" "$ON_STARTUP" "$USER"
+ENTRYPOINT docker-entrypoint.sh "$PORT" "$ON_STARTUP" "$AUTH"
