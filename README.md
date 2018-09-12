@@ -3,7 +3,7 @@
 
 ```sh
 # Basic server
-docker run -p 5000:5000 -d kdbq:3.6
+docker run -p 5000:5000 -d kysely/kdbq
 ```
 
 ### Load and execute a `q` script on startup
@@ -61,7 +61,7 @@ The following `docker run` command will mount the `data` dir into the container
 and the startup script will load a data set from that mounted directory.
 
 ```sh
-docker run -it -v "$(pwd)/data":/root/data -e ON_STARTUP="$(cat examples/load_data.q)" kdbq:3.6
+docker run -it -v "$(pwd)/data":/root/data -e ON_STARTUP="$(cat examples/load_data.q)" kysely/kdbq
 ```
 
 Then, because your server is set up, you can run queries on the loaded
@@ -80,7 +80,7 @@ You'll be prompted to enter the username and password (you can use
 `admin:admin` or `user:password`).
 
 ```sh
-docker run -it -p 5000:5000 -e AUTH="$(cat examples/users.txt)" kdbq:3.6
+docker run -it -p 5000:5000 -e AUTH="$(cat examples/users.txt)" kysely/kdbq
 ```
 
 
