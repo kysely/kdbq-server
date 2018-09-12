@@ -22,7 +22,7 @@ main() {
 	# Check whether we want to set up authentication
 	get_userpass "$AUTH" || USERPASS=""
 
-	# Start up the server on given port, load /server.q
+	# Start the server on given port, load the startup script
 	cd root/ && ./q/l32/q $STARTUP_FILE $USERPASS -p 0.0.0.0:$PORT
 }
 
