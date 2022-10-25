@@ -1,3 +1,11 @@
+:warning: :warning: :warning: 
+
+This project is no longer maintained. The kdb+ database no longer offers 32-bit Personal Edition.
+
+Check out current [KX](https://www.kx.com) offerings or use [Timescale](https://www.timescale.com) for an alternative.
+
+---
+
 # kdb+/q server
 ### Run the 32-bit kdb+/q database inside a Docker container
 
